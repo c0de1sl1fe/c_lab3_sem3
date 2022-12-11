@@ -121,6 +121,7 @@ void DrawRectangle(int x1, int y1, int x2, int y2, BinaryImg<T>& src)
         src(secondX, i) = true;
     }
 }
+
 template <>
 void DrawRectangle<bool>(int x1, int y1, int x2, int y2, BinaryImg<bool>& src)
 {

@@ -19,7 +19,7 @@ private:
     std::vector<std::vector<T>> a;
 
 
-    T** array;
+    //T** array;
     int row;
     int col;
     void DrawDot(float x, float y) const;
@@ -111,11 +111,11 @@ BinaryImg<T>::BinaryImg(int x, int y)
     if (x <= 0 || y <= 0) { throw EClassException("invalid dimension"); }
     row = x;
     col = y;
-    array = new T * [row];
-    for (int i = 0; i < row; i++)
-    {
-        array[i] = new T[col]{};
-    }
+    //array = new T * [row];
+    //for (int i = 0; i < row; i++)
+    //{
+    //    array[i] = new T[col]{};
+    //}
 
     // add new container
     a.resize(row);
@@ -136,18 +136,18 @@ BinaryImg<bool>::BinaryImg(int x, int y)
     if (x <= 0 || y <= 0) { throw EClassException("invalid dimension"); }
     row = x;
     col = y;
-    array = new bool* [row];
-    for (int i = 0; i < row; i++)
-    {
-        array[i] = new bool[col];
-    }
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < col; j++)
-        {
-            array[i][j] = false;
-        }
-    }
+    //array = new bool* [row];
+    //for (int i = 0; i < row; i++)
+    //{
+    //    array[i] = new bool[col];
+    //}
+    //for (int i = 0; i < row; i++)
+    //{
+    //    for (int j = 0; j < col; j++)
+    //    {
+    //        array[i][j] = false;
+    //    }
+    //}
 
     // add new container
     a.resize(row);
@@ -171,18 +171,18 @@ BinaryImg<char>::BinaryImg(int x, int y)
     if (x <= 0 || y <= 0) { throw EClassException("invalid dimension"); }
     row = x;
     col = y;
-    array = new char* [row];
-    for (int i = 0; i < row; i++)
-    {
-        array[i] = new char[col];
-    }
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < col; j++)
-        {
-            array[i][j] = '0';
-        }
-    }
+    //array = new char* [row];
+    //for (int i = 0; i < row; i++)
+    //{
+    //    array[i] = new char[col];
+    //}
+    //for (int i = 0; i < row; i++)
+    //{
+    //    for (int j = 0; j < col; j++)
+    //    {
+    //        array[i][j] = '0';
+    //    }
+    //}
 
     // add new container
     a.resize(row);
@@ -244,7 +244,7 @@ bool BinaryImg<T>::operator==(const BinaryImg<T>& src) const
     {
         for (int j = 0; j < a[i].size(); j++)
         {
-            if (array[i][j] != src.array[i][j]) { return false; }
+            if (a[i][j] != src.a[i][j]) { return false; }
         }
     }
     return true;
@@ -365,22 +365,22 @@ BinaryImg<T> BinaryImg<T>::operator*(T src) const
 template <class T>
 BinaryImg<T> BinaryImg<T>::operator!()
 {
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < col; j++)
-        {
-            // дописать numrec_type
-            if (array[i][j] == 0)
-            {
-                array[i][j] = std::numeric_limits<T>::max();
-            }
-            else
-            {
-                array[i][j] = 0;
-            }
-        }
+    //for (int i = 0; i < row; i++)
+    //{
+    //    for (int j = 0; j < col; j++)
+    //    {
+    //        // дописать numrec_type
+    //        if (array[i][j] == 0)
+    //        {
+    //            array[i][j] = std::numeric_limits<T>::max();
+    //        }
+    //        else
+    //        {
+    //            array[i][j] = 0;
+    //        }
+    //    }
 
-    }
+    //}
     for (auto& i : a)
     {
         for (auto& j : i)
@@ -401,22 +401,22 @@ BinaryImg<T> BinaryImg<T>::operator!()
 template <>
 BinaryImg<bool> BinaryImg<bool>::operator!()
 {
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < col; j++)
-        {
-            // дописать numrec_type
-            if (array[i][j] == 0)
-            {
-                array[i][j] = std::numeric_limits<bool>::max();
-            }
-            else
-            {
-                array[i][j] = 0;
-            }
-        }
+    //for (int i = 0; i < row; i++)
+    //{
+    //    for (int j = 0; j < col; j++)
+    //    {
+    //        // дописать numrec_type
+    //        if (array[i][j] == 0)
+    //        {
+    //            array[i][j] = std::numeric_limits<bool>::max();
+    //        }
+    //        else
+    //        {
+    //            array[i][j] = 0;
+    //        }
+    //    }
 
-    }
+    //}
     for (int i = 0; i < a.size(); i++)
     {
         for (int j = 0; j < a[i].size(); j++)
@@ -437,21 +437,21 @@ BinaryImg<bool> BinaryImg<bool>::operator!()
 template <>
 BinaryImg<char> BinaryImg<char>::operator!()
 {
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < col; j++)
-        {
-            // дописать numrec_type
-            if (array[i][j] == '0')
-            {
-                array[i][j] = std::numeric_limits<char>::max();
-            }
-            else
-            {
-                array[i][j] = '0';
-            }
-        }
-    }
+    //for (int i = 0; i < row; i++)
+    //{
+    //    for (int j = 0; j < col; j++)
+    //    {
+    //        // дописать numrec_type
+    //        if (array[i][j] == '0')
+    //        {
+    //            array[i][j] = std::numeric_limits<char>::max();
+    //        }
+    //        else
+    //        {
+    //            array[i][j] = '0';
+    //        }
+    //    }
+    //}
     for (auto& i : a)
     {
         for (auto& j : i)
@@ -542,7 +542,7 @@ double BinaryImg<bool>::AccumulationFactor() const
     {
         for (int j = 0; j < a[i].size(); j++)
         {
-            if (!array[i][j]) { k++; }
+            if (!a[i][j]) { k++; }
         }
     }
     return (double)k / ((double)row * (double)col);
