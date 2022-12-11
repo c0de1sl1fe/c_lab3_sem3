@@ -296,6 +296,7 @@ int main()
 
                             tmp = example(x, y);
                             std::cout << tmp;
+                            system("pause");
                         }
                         catch (EClassException& err)
                         {

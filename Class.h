@@ -48,7 +48,7 @@ public:
     bool operator==(const BinaryImg<T>& src) const;
     bool operator!=(const BinaryImg<T>& src) const;
 
-    void operator()(int x, int y, bool value); //especially for bool 
+    void operator()(int x, int y, T value); //especially for bool 
 
     T& operator()(int x, int y);
     T operator()(int x, int y) const;
@@ -258,8 +258,51 @@ bool BinaryImg<T>::operator!=(const BinaryImg<T>& src) const
 }
 
 
-//template <class T>
-//T& BinaryImg<T>::operator()(int x, int y)
+template <class T>
+T& BinaryImg<T>::operator()(int x, int y)
+{
+    if ((x >= row || y >= col) || (x < 0 || y < 0))
+    {
+        throw EClassException("invalid index");
+    }
+    //changed need to test
+    return a[x][y];
+}
+//template<>
+//char& BinaryImg<char>::operator()(int x, int y)
+//{
+//    if ((x >= row || y >= col) || (x < 0 || y < 0))
+//    {
+//        throw EClassException("invalid index");
+//    }
+//    //changed need to test
+//    return a[x][y];
+//}
+//
+//template<>
+//int& BinaryImg<int>::operator()(int x, int y)
+//{
+//    if ((x >= row || y >= col) || (x < 0 || y < 0))
+//    {
+//        throw EClassException("invalid index");
+//    }
+//    //changed need to test
+//    return a[x][y];
+//}
+//
+//template<>
+//float& BinaryImg<float>::operator()(int x, int y)
+//{
+//    if ((x >= row || y >= col) || (x < 0 || y < 0))
+//    {
+//        throw EClassException("invalid index");
+//    }
+//    //changed need to test
+//    return a[x][y];
+//}
+//
+//template<>
+//short& BinaryImg<short>::operator()(int x, int y)
 //{
 //    if ((x >= row || y >= col) || (x < 0 || y < 0))
 //    {
@@ -269,51 +312,19 @@ bool BinaryImg<T>::operator!=(const BinaryImg<T>& src) const
 //    return a[x][y];
 //}
 template<>
-char& BinaryImg<char>::operator()(int x, int y)
+bool& BinaryImg<bool>::operator()(int x, int y)
 {
     if ((x >= row || y >= col) || (x < 0 || y < 0))
     {
         throw EClassException("invalid index");
     }
     //changed need to test
-    return a[x][y];
-}
-
-template<>
-int& BinaryImg<int>::operator()(int x, int y)
-{
-    if ((x >= row || y >= col) || (x < 0 || y < 0))
-    {
-        throw EClassException("invalid index");
-    }
-    //changed need to test
-    return a[x][y];
-}
-
-template<>
-float& BinaryImg<float>::operator()(int x, int y)
-{
-    if ((x >= row || y >= col) || (x < 0 || y < 0))
-    {
-        throw EClassException("invalid index");
-    }
-    //changed need to test
-    return a[x][y];
-}
-
-template<>
-short& BinaryImg<short>::operator()(int x, int y)
-{
-    if ((x >= row || y >= col) || (x < 0 || y < 0))
-    {
-        throw EClassException("invalid index");
-    }
-    //changed need to test
-    return a[x][y];
+    bool tmp = a[x][y];
+    return tmp;
 }
 
 template<class T>
-void BinaryImg<T>::operator()(int x, int y, bool value)
+void BinaryImg<T>::operator()(int x, int y, T value)
 {
     if ((x >= row || y >= col) || (x < 0 || y < 0))
     {
