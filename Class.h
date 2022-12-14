@@ -33,17 +33,23 @@ private:
 
 
 public:
+    
     BinaryImg(int x, int y);
+    //for task...
+    BinaryImg(const BinaryImg<T>& src) = default;
+    ~BinaryImg() = default;
+    BinaryImg<T>& operator= (const BinaryImg<T>& src) = default;
+
     //BinaryImg(const BinaryImg& src);
     //~BinaryImg();
     int GetRow() const;
     int GetCol() const;
 
-    friend std::ostream& operator<<(std::ostream& os, BinaryImg<T>& obj)
-    {
-        obj.Print();
-        return os;
-    }
+    //friend std::ostream& operator<<(std::ostream& os, BinaryImg<T>& obj)
+    //{
+    //    obj.Print();
+    //    return os;
+    //}
 
     bool operator==(const BinaryImg<T>& src) const;
     bool operator!=(const BinaryImg<T>& src) const;
@@ -396,15 +402,23 @@ template <class T>
 void BinaryImg<T>::Print()
 {
 
-    screen = new Graphics((row * SCALE) + SCALE * 12, (col * SCALE) + SCALE * 12);
-    for (int i = 0; i < a.size(); i++)
+    //screen = new Graphics((row * SCALE) + SCALE * 12, (col * SCALE) + SCALE * 12);
+    //for (int i = 0; i < a.size(); i++)
+    //{
+    //    for (int j = 0; j < a[i].size(); j++)
+    //    {
+    //        a[i][j] ? DrawDot((float)(i * SCALE), (float)(j * SCALE)) : DrawBlankDot((float)(i * SCALE), (float)(j * SCALE));
+    //    }
+    //}
+    //delete screen;
+    for (auto i : a)
     {
-        for (int j = 0; j < a[i].size(); j++)
+        for (auto j : a)
         {
-            a[i][j] ? DrawDot((float)(i * SCALE), (float)(j * SCALE)) : DrawBlankDot((float)(i * SCALE), (float)(j * SCALE));
+            std::cout << j;
         }
+        std::cout<<std::endl;
     }
-    delete screen;
 }
 
 

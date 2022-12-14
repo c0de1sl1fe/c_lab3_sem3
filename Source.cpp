@@ -33,6 +33,19 @@
 //
 //    return res;
 //}
+template <class T>
+ std::ostream& operator<<(std::ostream& os, BinaryImg<T>& obj)
+{
+     for (auto i : obj)
+     {
+         for (auto j : i)
+         {
+             std::cout << j ;
+         }
+         std::cout << "\n";
+     }
+     return os;
+}
 int EnterNumber()
 {
     double tmp;
