@@ -69,6 +69,15 @@ public:
     {
         return src.Or(rhs);
     }
+
+    //new
+    auto begin() {
+        return a.begin();
+    }
+    //new
+    auto end() {
+        return a.end();
+    }
 };
 
 
