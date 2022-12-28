@@ -2,7 +2,6 @@
 #include <iostream>
 #include "Graphics.h"
 #include <math.h>
-#include "Graphics.h"
 
 #include <string>
 #include <typeinfo>

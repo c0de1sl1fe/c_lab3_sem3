@@ -33,6 +33,8 @@
 //
 //    return res;
 //}
+
+
 template <class T>
  std::ostream& operator<<(std::ostream& os, BinaryImg<T>& obj)
 {
@@ -42,10 +44,11 @@ template <class T>
          {
              std::cout << j ;
          }
-         std::cout << "\n";
+         std::cout << "\n ";
      }
      return os;
 }
+
 int EnterNumber()
 {
     double tmp;
@@ -219,7 +222,9 @@ void printMenu2()
     std::cout << "6. Exit" << std::endl;
 
     std::cout << "choice: ";
+
 }
+
 
 void showTheOverflow()
 {
